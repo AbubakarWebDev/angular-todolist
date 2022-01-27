@@ -1,0 +1,140 @@
+/* Basic Style */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  font-family: "Lato", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: block;
+  margin: 10px auto;
+  padding: 30px 20px;
+  border-radius: 10px;
+  max-width: max-content;
+}
+
+h2 {
+  text-align: center;
+}
+
+input,
+button {
+  outline: none;
+}
+
+button {
+  background: none;
+  border: 0px;
+  color: #888;
+  font-size: 15px;
+  width: 60px;
+  font-family: Lato, sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #333;
+}
+
+/* Heading */
+
+h3,
+label[for="new-task"] {
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: 2px solid #333;
+  padding: 20px 0 10px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+input[type="text"] {
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+
+input[type="text"]:focus {
+  color: #333;
+}
+
+/* New Task */
+
+.addtask-form {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addtask-form input {
+  width: 300px;
+  padding: 16px;
+}
+
+
+.addtask-form > button:hover {
+  color: #0fc57c;
+}
+
+/* Task list */
+
+.tasks form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.tasks form > input[type="checkbox"] {
+  margin: 0 10px;
+}
+
+.tasks form > label {
+  font-size: 18px;
+  width: 237px;
+  padding: 6.5px 0 6.5px 17px;
+}
+
+.tasks form > input[type="text"] {
+  font-size: 18px;
+  width: 237px;
+  padding: 16px;
+}
+
+.tasks form > .delete:hover {
+  color: #cf2323;
+}
+
+/* Completed */
+
+.completed-tasks label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Edit Task */
+
+.tasks form input[type="text"] {
+  display: none;
+}
+
+.tasks form.editMode input[type="text"] {
+  display: block;
+}
+
+.tasks form.editMode label {
+  display: none;
+}
