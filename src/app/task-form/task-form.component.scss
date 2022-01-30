@@ -1,0 +1,43 @@
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(220, 220, 220);
+
+  input[type="checkbox"] {
+    margin: 0 10px;
+    width: 30px;
+    height: 30px;
+  }
+
+  input[type="text"] {
+    font-size: 22px;
+    width: 100%;
+    padding: 20px 16px;
+    display: none;
+  }
+
+  label {
+    font-size: 22px;
+    width: 100%;
+    padding: 8px 17px;
+  }
+
+  /* Edit Task */
+
+  &.editMode input[type="text"] {
+    display: block;
+  }
+
+  &.editMode label {
+    display: none;
+  }
+
+  /* Completed */
+  
+  &.completed label {
+    text-decoration: line-through;
+    color: #888;
+  }
+}
