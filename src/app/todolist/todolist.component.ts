@@ -32,31 +32,33 @@ export class TodolistComponent implements OnInit {
     }
   }
 
-  handleEdit({ taskId, taskName }: any) {
-    let task = this.tasks[this.tasks.findIndex((i => i.id == taskId))];
-    if (task.editStatus) {
-      task.editStatus = false;
-      task.name = taskName;
+  handleEdit({index, taskName}: any) {
+    if (this.tasks[index].editStatus) {
+      this.tasks[index].editStatus = false;
+      this.tasks[index].name = taskName;
     }
     else {
-      task.editStatus = true;
+      this.tasks[index].editStatus = true;
     }
   }
 
-  handleDelete(taskId: any) {
-    this.tasks.splice(this.tasks.findIndex((i => i.id == taskId)), 1);
+  handleDelete(index: any) {
+    this.tasks.splice(index, 1);
     this.updateList();
   }
 
-  handleCheckbox({taskId, checked}: any) {
-    let task = this.tasks[this.tasks.findIndex((i => i.id == taskId))];
-    task.completedStatus = (checked) ? true : false;
+  handleCheckbox({index, checked}: any) {
+    this.tasks[index].completedStatus = (checked) ? true : false;
     this.updateList();
   }
 
   updateList() {
     this.showTodoList = this.tasks.filter(i => !(i.completedStatus)).length > 0;
     this.showCompletedList = this.tasks.filter(i => i.completedStatus).length > 0;
+  }
+
+  trackByUid(index: Number, task: Task) : Number {
+    return task.id;
   }
 
   uid(): number {

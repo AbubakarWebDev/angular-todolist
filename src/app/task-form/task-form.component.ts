@@ -9,29 +9,29 @@ import { Task } from "../Models/task";
 
 export class TaskFormComponent implements OnInit {
 
-  @Input() todoTask!: Task;
+  @Input() todoTask!: {index: Number, task: Task};
   @Output() completeTask: EventEmitter<any> = new EventEmitter<any>();
   @Output() updateTask: EventEmitter<any> = new EventEmitter<any>();
   @Output() deleteTask: EventEmitter<any> = new EventEmitter<any>();
 
-  handleCheckbox(event:any) {
+  handleCheckbox(i: Number, checked: boolean): void {
     this.completeTask.emit({
-      taskId: event.target.getAttribute("taskId"), 
-      checked: event.target.checked
+      index: i,
+      checked: checked
     });
   }
 
-  handleDelete(event:any) {
+  handleDelete(event: any, index: Number) : void {
     event.preventDefault();
-    this.deleteTask.emit(event.target.closest('button').getAttribute("taskId"));
+    this.deleteTask.emit(index);
   }
 
-  handleEdit(event:any) {
+  handleEdit(event:any, i: Number, taskName: String) : void {
     if (event.target.closest('form').checkValidity()) {
       event.preventDefault();
       this.updateTask.emit({
-        taskId: event.target.closest('button').getAttribute("taskId"), 
-        taskName: event.target.closest('form').updatetask.value
+        index: i,
+        taskName: taskName
       });
     }
   }
@@ -39,6 +39,7 @@ export class TaskFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

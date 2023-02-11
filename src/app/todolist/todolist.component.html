@@ -10,12 +10,12 @@
     </form>
 
     <h3 *ngIf='showTodoList'>Todo</h3>
-    <div *ngFor="let task of tasks;">
-        <app-task-form *ngIf="!task.completedStatus" (completeTask)="handleCheckbox($event)" [todoTask]="task" (updateTask)="handleEdit($event)" (deleteTask)="handleDelete($event)"></app-task-form>
+    <div *ngFor="let task of tasks; let i = index; trackBy: trackByUid;">
+        <app-task-form *ngIf="!task.completedStatus" (completeTask)="handleCheckbox($event)" [todoTask]="{index: i, task: task}" (updateTask)="handleEdit($event)" (deleteTask)="handleDelete($event)"></app-task-form>
     </div>
 
     <h3 *ngIf="showCompletedList">Completed</h3>
-    <div *ngFor="let task of tasks;">
-        <app-task-form *ngIf="task.completedStatus" (completeTask)="handleCheckbox($event)" [todoTask]="task" (updateTask)="handleEdit($event)" (deleteTask)="handleDelete($event)"></app-task-form>
+    <div *ngFor="let task of tasks; let i = index; trackBy: trackByUid;">
+        <app-task-form *ngIf="task.completedStatus" (completeTask)="handleCheckbox($event)" [todoTask]="{index: i, task: task}" (updateTask)="handleEdit($event)" (deleteTask)="handleDelete($event)"></app-task-form>
     </div>
 </div>
