@@ -24,7 +24,7 @@ Ensure you have the following installed on your system:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/angular-todolist.git
+   git clone https://github.com/AbubakarWebDev/angular-todolist
    cd angular-todolist
    ```
 
